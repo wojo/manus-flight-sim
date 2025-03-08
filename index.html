@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Web Flight Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Three.js library for 3D rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <!-- OrbitControls for camera manipulation -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js"></script>
+    <!-- GLTFLoader for loading 3D models -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loading-container">
+            <h1>Web Flight Simulator</h1>
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+            </div>
+            <p class="loading-text">Loading...</p>
+        </div>
+    </div>
+
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        
+        <div id="hud">
+            <div id="speed-indicator">
+                <span class="label">Speed:</span>
+                <span class="value">0</span> <span class="unit">knots</span>
+            </div>
+            <div id="altitude-indicator">
+                <span class="label">Altitude:</span>
+                <span class="value">0</span> <span class="unit">ft</span>
+            </div>
+        </div>
+
+        <div id="mobile-controls">
+            <div id="throttle-control">
+                <div class="control-label">Throttle</div>
+                <div class="slider-container">
+                    <input type="range" min="0" max="100" value="0" class="slider" id="throttle-slider">
+                </div>
+            </div>
+            <div id="direction-control">
+                <div class="joystick-container">
+                    <div id="joystick-base">
+                        <div id="joystick-handle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="desktop-instructions" class="instructions">
+            <h3>Controls:</h3>
+            <p>W/S - Pitch up/down</p>
+            <p>A/D - Roll left/right</p>
+            <p>Q/E - Yaw left/right</p>
+            <p>Shift/Ctrl - Throttle up/down</p>
+            <p>R - Reset position</p>
+            <p>Space - Brake</p>
+        </div>
+    </div>
+
+    <!-- Game scripts -->
+    <script src="js/aircraft.js"></script>
+    <script src="js/environment.js"></script>
+    <script src="js/physics.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/collision.js"></script>
+    <script src="js/gun.js"></script>
+    <script src="js/sky-objects.js"></script>
+    <script src="js/attitude-indicator.js"></script>
+    <script src="js/mobile-optimization.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
